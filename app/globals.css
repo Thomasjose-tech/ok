@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f172a; /* Updated to match the dark theme */
+  --foreground: ##0f172a;
 }
 
-@theme inline {
-  --color-background: var(--background);
+:root {
+  --color-background: var(--background);  
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -14,13 +14,46 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f172a; /* Ensures background stays dark in dark mode */
+    --foreground: ##0f172a;
   }
 }
 
-body {
+body, html {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: var(--background);
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Ensure solid backgrounds */
+.member-list-container {
+  background-color: var(--background); /* Match the background color */
+  width: auto;
+}
+
+.input-box {
+  background-color: var(--background); /* Match the background color */
+  width: auto;
+}
+
+/* Ensure buttons are properly sized */
+.button-container {
+  width: auto;
+}
+
+@media (min-width: 640px) { /* Tailwind's sm breakpoint */
+  .member-list-container,
+  .input-box,
+  .button-container {
+    width: fit-content;
+  }
 }
