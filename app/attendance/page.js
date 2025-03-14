@@ -1,13 +1,15 @@
-import Layout from "../../components/Layout";
+"use client";
 
-const AttendancePage = () => {
+import React from 'react';
+import Layout from '../../components/Layout';
+import Attendance from '../../components/Attendance';
+
+export default function AttendancePage() {
   return (
     <Layout>
       <div className="p-6">
-        <h1 className="text-2xl font-bold">Present</h1>
+        <Attendance />
       </div>
     </Layout>
   );
-};
-
-export default AttendancePage;
+}
