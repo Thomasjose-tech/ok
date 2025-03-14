@@ -1,12 +1,14 @@
-// app/page.js or pages/index.js
-import Layout from '../components/Layout';
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <Layout>
-      <div>
-       
-      </div>
-    </Layout>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/login"); // Redirect to login instead of register
+  }, [router]);
+
+  return null;
 }
+

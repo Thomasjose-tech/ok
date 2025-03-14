@@ -1,13 +1,16 @@
+"use client";
+
 import Layout from "../../components/Layout";
+import Trainers from "../../components/Trainers";
 
 const TrainersPage = () => {
   return (
     <Layout>
       <div className="p-6">
-        <h1 className="text-2xl font-bold">Thu</h1>
+        <Trainers />
       </div>
     </Layout>
   );
 };
 
-export default TrainersPage;
+export default TrainersPage

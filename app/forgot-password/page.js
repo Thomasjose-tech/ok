@@ -1,0 +1,250 @@
+// "use client";
+
+// import { useState } from "react";
+// import { useRouter } from "next/navigation";
+// import Link from "next/link";
+
+// export default function ForgotPassword() {
+//   const [email, setEmail] = useState("");
+//   const [loading, setLoading] = useState(false);
+//   const [message, setMessage] = useState("");
+//   const router = useRouter();
+
+//   const handleForgotPassword = async (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+
+//     // Simulate API call with a timeout
+//     setTimeout(() => {
+//       setMessage("Reset link sent successfully. Please check your email.");
+//       setLoading(false);
+
+//       // For frontend demo: redirect to reset-password page with a fake token
+//       // In production, this redirect would happen when user clicks the email link
+//       setTimeout(() => {
+//         router.push("/reset-password?token=demo-token&userId=demo-user");
+//       }, 1500);
+//     }, 1000);
+//   };
+
+//   return (
+//     <div className="flex justify-center items-center min-h-screen bg-black px-4 sm:px-6 md:px-8">
+//       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-black p-6 sm:p-8 md:p-10 rounded-lg border border-red-600 shadow-lg transition-all duration-300 hover:shadow-red-600/40 hover:shadow-xl hover:border-2">
+//         <h1 className="text-white text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">FORGOT PASSWORD</h1>
+//         <form onSubmit={handleForgotPassword}>
+//           <div className="mb-6 sm:mb-8">
+//             <input
+//               type="email"
+//               placeholder="Enter your registered email"
+//               className="w-full p-3 sm:p-4 rounded bg-gray-800 text-white border border-gray-700 focus:border-red-500 focus:ring-1 focus:ring-red-500 hover:border-red-500 hover:ring-1 hover:ring-red-500 focus:outline-none transition-all duration-200"
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//               required
+//             />
+//           </div>
+//           <button
+//             type="submit"
+//             className="w-full bg-red-600 text-white p-3 sm:p-4 rounded font-medium hover:bg-red-700 active:bg-red-800 transform hover:translate-y-px active:translate-y-0 transition-all duration-200 text-base sm:text-lg relative overflow-hidden hover:shadow-lg hover:shadow-red-600/20"
+//             disabled={loading}
+//           >
+//             <span className="relative z-10 flex justify-center items-center">
+//               {loading ? (
+//                 <>
+//                   <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+//                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+//                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+//                   </svg>
+//                   Sending...
+//                 </>
+//               ) : (
+//                 "Send Reset Link"
+//               )}
+//             </span>
+//           </button>
+//           {message && (
+//             <div className="mt-4 text-green-400 text-center">
+//               {message}
+//             </div>
+//           )}
+//           <div className="text-center mt-4 sm:mt-6">
+//             <Link 
+//               href="/login" 
+//               className="text-purple-400 hover:text-purple-300 text-sm sm:text-base transition-colors duration-200 hover:underline inline-block"
+//             >
+//               Back to Login
+//             </Link>
+//           </div>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
+"use client";
+
+// import { useState } from "react";
+// import { useRouter } from "next/navigation";
+// import Link from "next/link";
+
+// export default function ForgotPassword() {
+//   const [email, setEmail] = useState("");
+//   const [loading, setLoading] = useState(false);
+//   const [message, setMessage] = useState("");
+//   const router = useRouter();
+
+//   const handleForgotPassword = async (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+
+//     // Simulate API call with a timeout
+//     setTimeout(() => {
+//       setMessage("Reset link sent successfully. Please check your email.");
+//       setLoading(false);
+
+//       // For frontend demo: redirect to reset-password page with a fake token
+//       // In production, this redirect would happen when user clicks the email link
+//       setTimeout(() => {
+//         router.push("/reset-password?token=demo-token&userId=demo-user");
+//       }, 1500);
+//     }, 1000);
+//   };
+
+//   return (
+//     <div className="flex justify-center items-center min-h-screen bg-black px-4 sm:px-6 md:px-8">
+//        <div 
+//            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-black p-6 sm:p-8 md:p-10 rounded-lg border border-red-600 shadow-lg transition-all duration-300 
+//            focus-within:border-red-500 focus-within:ring-1 focus-within:ring-red-500 active:border-red-500 active:ring-2 active:ring-red-500
+//            hover:shadow-red-600/40 hover:shadow-xl hover:border-2">
+        
+//        <h1 className="text-white text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">FORGOT PASSWORD</h1>
+//         <form onSubmit={handleForgotPassword}>
+//           <div className="mb-6 sm:mb-8">
+//             <input
+//               type="email"
+//               placeholder="Enter your registered email"
+//               className="w-full p-3 sm:p-4 rounded bg-gray-800 text-white border border-gray-700 
+//     focus:border-red-500 focus:ring-0 focus:ring-red-500 outline-none 
+//     transition-all duration-200"
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//               required
+//             />
+//           </div>
+//           <div className="flex justify-center"></div>
+//           <button
+//             type="submit"
+//             className="w-32 sm:w-40 md:w-48 lg:w-56  bg-red-600 text-white p-3 sm:p-2 rounded font-medium hover:bg-red-700 active:bg-red-800 transform hover:translate-y-px active:translate-y-0 transition-all duration-200 text-base sm:text-lg relative overflow-hidden"
+//             disabled={loading}
+//           >
+//             <span className="relative z-10 flex justify-center items-center">
+//               {loading ? (
+//                 <>
+//                   <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+//                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+//                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+//                   </svg>
+//                   Sending...
+//                 </>
+//               ) : (
+//                 "Send Reset Link"
+//               )}
+//             </span>
+//           </button>
+//           {message && (
+//             <div className="mt-4 text-green-400 text-center">
+//               {message}
+//             </div>
+//           )}
+//           <div className="text-center mt-4 sm:mt-6">
+//             <Link 
+//               href="/login" 
+//               className="text-purple-400 hover:text-purple-300 focus:text-purple-300 active:text-purple-300 text-sm sm:text-base transition-colors duration-200 hover:underline inline-block"
+//             >
+//               Back to Login
+//             </Link>
+//           </div>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// }
+import { useState } from "react"; 
+import { useRouter } from "next/navigation"; 
+import Link from "next/link";  
+
+export default function ForgotPassword() {   
+  const [email, setEmail] = useState("");   
+  const [loading, setLoading] = useState(false);   
+  const [message, setMessage] = useState("");   
+  const router = useRouter();    
+  
+  const handleForgotPassword = async (e) => {     
+    e.preventDefault();     
+    setLoading(true);      
+    
+    // Simulate API call with a timeout     
+    setTimeout(() => {       
+      setMessage("Reset link sent successfully. Please check your email.");       
+      setLoading(false);        
+      
+      // For frontend demo: redirect to reset-password page with a fake token       
+      // In production, this redirect would happen when user clicks the email link       
+      setTimeout(() => {         
+        router.push("/reset-password?token=demo-token&userId=demo-user");       
+      }, 1500);     
+    }, 1000);   
+  };    
+  
+  return (     
+    <div className="flex justify-center items-center min-h-screen bg-black px-4 sm:px-6 md:px-8">        
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-black p-6 sm:p-8 md:p-10 rounded-lg border border-red-600 shadow-lg transition-all duration-300 focus-within:border-red-500 focus-within:ring-1 focus-within:ring-red-500 active:border-red-500 active:ring-2 active:ring-red-500 hover:shadow-red-600/40 hover:shadow-xl hover:border-2">                 
+        <h1 className="text-white text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">FORGOT PASSWORD</h1>         
+        <form onSubmit={handleForgotPassword}>           
+          <div className="mb-6 sm:mb-8">             
+            <input               
+              type="email"               
+              placeholder="Enter your registered email"               
+              className="w-full p-3 sm:p-4 rounded bg-gray-800 text-white border border-gray-700 focus:border-red-500 focus:ring-0 focus:ring-red-500 outline-none transition-all duration-200"               
+              value={email}               
+              onChange={(e) => setEmail(e.target.value)}               
+              required             
+            />           
+          </div>           
+          <div className="flex justify-center">
+            <button             
+              type="submit"             
+              className="w-32 sm:w-40 md:w-48 lg:w-56  bg-red-600 text-white p-3 sm:p-2 rounded font-medium hover:bg-red-700 active:bg-red-800 transform hover:translate-y-px active:translate-y-0 transition-all duration-200 text-base sm:text-lg relative overflow-hidden"             
+              disabled={loading}           
+            >             
+              <span className="relative z-10 flex justify-center items-center">               
+                {loading ? (                 
+                  <>                   
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">                     
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>                     
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>                   
+                    </svg>                   
+                    Sending...                 
+                  </>               
+                ) : (                 
+                  "Send Reset Link"               
+                )}             
+              </span>           
+            </button>
+          </div>
+          {message && (             
+            <div className="mt-4 text-green-400 text-center">               
+              {message}             
+            </div>           
+          )}           
+          <div className="text-center mt-4 sm:mt-6">             
+            <Link                
+              href="/login"                
+              className="text-purple-400 hover:text-purple-300 focus:text-purple-300 active:text-purple-300 text-sm sm:text-base transition-colors duration-200 hover:underline inline-block"             
+            >               
+              Back to Login             
+            </Link>           
+          </div>         
+        </form>       
+      </div>     
+    </div>   
+  ); 
+}
