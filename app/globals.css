@@ -1,25 +1,28 @@
+/* global.css */
 @import "tailwindcss";
 
 :root {
-  --background: #0f172a; /* Updated to match the dark theme */
-  --foreground: #0f172a;
+  --background: #0f172a; /* Dark mode background */
+  --foreground: #ffffff; /* Dark mode text color */
+  --border-color: #374151; /* Dark mode border color */
 }
 
-:root {
-  --color-background: var(--background);  
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0f172a; /* Ensures background stays dark in dark mode */
-    --foreground: ##0f172a;
+    --background: #ffffff; /* Light mode background */
+    --foreground: #000000; /* Light mode text color */
+    --border-color: #e5e7eb; /* Light mode border color */
   }
 }
 
-body, html {
+/* Apply theme immediately to the root element */
+html {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body,
+html {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
@@ -50,10 +53,82 @@ body, html {
   width: auto;
 }
 
-@media (min-width: 640px) { /* Tailwind's sm breakpoint */
+@media (min-width: 640px) {
+  /* Tailwind's sm breakpoint */
   .member-list-container,
   .input-box,
   .button-container {
     width: fit-content;
   }
+}
+
+.light-mode,
+.light-mode * {
+  background-color: white !important;
+  color: black !important;
+}
+
+.light-mode .amount-text {
+  color: black !important; /* Changed to black for better visibility in light mode */
+}
+
+/* Light mode overrides */
+.light-mode {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+.light-mode .bg-gray-800,
+.light-mode .bg-gray-900,
+.light-mode .bg-gray-800\/30,
+.light-mode .bg-gray-900\/50 {
+  background-color: var(--background) !important;
+}
+
+.light-mode .border-gray-700,
+.light-mode .border-gray-800 {
+  border-color: var(--border-color) !important;
+}
+
+.light-mode .text-gray-400,
+.light-mode .text-gray-500,
+.light-mode .text-gray-300 {
+  color: var(--foreground) !important;
+}
+
+.light-mode .bg-gradient-to-b,
+.light-mode .bg-gradient-to-r {
+  background-image: none !important;
+  background-color: var(--background) !important;
+}
+
+.light-mode .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-mode .hover\:bg-gray-700:hover {
+  background-color: #f3f4f6 !important; /* Light grey hover background */
+}
+
+.light-mode .hover\:bg-red-600:hover {
+  background-color: transparent !important; /* Remove red hover background */
+}
+
+.light-mode .hover\:text-red-500:hover {
+  color: #dc2626 !important; /* Red hover text */
+}
+
+/* Navbar button hover overrides */
+.light-mode .navbar-button:hover {
+  background-color: transparent !important; /* Remove hover background for navbar buttons */
+}
+
+/* Add these styles for search bar outline in light mode */
+.light-mode .search-bar:hover {
+  border: 2px solid black !important; /* Thicker border on hover */
+}
+
+.light-mode .search-bar:focus {
+  border: 2px solid black !important; /* Thicker border on focus */
+  outline: none !important; /* Remove default outline */
 }

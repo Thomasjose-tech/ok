@@ -1,8 +1,8 @@
 // "use client";
-
 // import { useState } from "react";
 // import Sidebar from "./Sidebar";
 // import Navbar from "./Navbar";
+// import { useTheme } from "next-themes";
 
 // export default function Layout({ children }) {
 //   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,163 +11,212 @@
 //     setIsSidebarOpen(!isSidebarOpen);
 //   };
 
-//   return (
-//     <div className="flex flex-col min-h-screen">
-//       {/* Navbar */}
-//       <Navbar
-//         onMenuClick={toggleSidebar}
-//         onLogout={() => console.log("Logging out...")}
-//         onRegister={() => console.log("Registering new member...")}
-//       />
+//   const { theme } = useTheme();
 
-//       {/* Main Content Area */}
-//       <div className="flex flex-1">
-//         {/* Sidebar */}
-//         <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
+//   return (
+//     <div className={theme === "light" ? "light-mode" : ""}>
+//       <div className="flex flex-col min-h-screen">
+//         {/* Navbar */}
+//         <Navbar
+//           onMenuClick={toggleSidebar}
+//           onLogout={() => console.log("Logging out...")}
+//           onRegister={() => console.log("Registering new member...")}
+//         />
+
+//         {/* Main Content Area */}
+//         <div className="flex flex-1">
+//           {/* Sidebar */}
+//           <Sidebar
+//             isOpen={isSidebarOpen}
+//             closeSidebar={() => setIsSidebarOpen(false)}
+//           />
+
+//           {/* Main Content - Using fixed positioning for content */}
+//           <main className="flex-1 bg-gray-900 ml-0 md:ml-64 overflow-hidden">
+//             <div className="mt-24 h-[calc(100vh-6rem)] overflow-auto">
+//               {children}
+//             </div>
+//           </main>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+// "use client";
+// import { useState, useEffect } from "react";
+// import Sidebar from "./Sidebar";
+// import Navbar from "./Navbar";
+// import { useTheme } from "next-themes";
+
+// export default function Layout({ children }) {
+//   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+//   const { theme, setTheme } = useTheme();
+//   const [mounted, setMounted] = useState(false);
+
+//   useEffect(() => {
+//     setMounted(true);
+//     if (!theme) setTheme("dark"); // Set dark mode if theme is not defined
+//   }, [theme]);
+
+//   return (
+//     <div className={`${mounted && theme === "light" ? "light-mode" : ""}`}>
+//       <div className="flex flex-col min-h-screen">
+//         {/* Navbar */}
+//         <Navbar
+//           onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)}
+//           onLogout={() => console.log("Logging out...")}
+//           onRegister={() => console.log("Registering new member...")}
+//         />
 
 //         {/* Main Content */}
-//         <main className="flex-1 p-4 bg-gray-900 mt-16 ml-64"> {/* Add mt-16 and ml-64 for spacing */}
-//           {children}
-//         </main>
+//         <div className="flex flex-1">
+//           <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
+//           <main className="flex-1 bg-gray-900 ml-0 md:ml-64 overflow-hidden">
+//             <div className="mt-24 h-[calc(100vh-6rem)] overflow-auto">
+//               {children}
+//             </div>
+//           </main>
+//         </div>
 //       </div>
 //     </div>
 //   );
 // }
 // "use client";
-
-// import { useState } from "react";
+// import { useState, useEffect } from "react";
 // import Sidebar from "./Sidebar";
 // import Navbar from "./Navbar";
+// import { useTheme } from "next-themes";
 
 // export default function Layout({ children }) {
 //   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+//   const { theme, setTheme, resolvedTheme } = useTheme();
+//   const [mounted, setMounted] = useState(false);
 
-//   const toggleSidebar = () => {
-//     setIsSidebarOpen(!isSidebarOpen);
-//   };
+//   // Ensure the theme is persisted and applied immediately
+//   useEffect(() => {
+//     setMounted(true);
+//     if (!theme) setTheme("dark"); // Set dark mode if theme is not defined
+//   }, [theme, setTheme]);
+
+//   // Prevent blinking by applying the theme class to the root element
+//   useEffect(() => {
+//     if (mounted) {
+//       document.documentElement.classList.toggle("light-mode", resolvedTheme === "light");
+//     }
+//   }, [mounted, resolvedTheme]);
+
+//   if (!mounted) {
+//     return null; // Avoid rendering until the theme is resolved
+//   }
 
 //   return (
-//     <div className="flex flex-col min-h-screen">
-//       {/* Navbar */}
-//       <Navbar
-//         onMenuClick={toggleSidebar}
-//         onLogout={() => console.log("Logging out...")}
-//         onRegister={() => console.log("Registering new member...")}
-//       />
+//     <div className={`${resolvedTheme === "light" ? "light-mode" : ""}`}>
+//       <div className="flex flex-col min-h-screen">
+//         {/* Navbar */}
+//         <Navbar
+//           onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)}
+//           onLogout={() => console.log("Logging out...")}
+//           onRegister={() => console.log("Registering new member...")}
+//         />
 
-//       {/* Main Content Area */}
-//       <div className="flex flex-1">
-//         {/* Sidebar */}
-//         <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
-
-//         {/* Main Content - Adjusted margin-top and margin-left */}
-//         <main className="flex-1 p-4 bg-gray-900 mt-16 ml-0 md:ml-64"> 
-//           {children}
-//         </main>
-//       </div>
-//     </div>
-//   );
-// }
-// "use client";
-// import { useState } from "react";
-// import Sidebar from "./Sidebar";
-// import Navbar from "./Navbar";
-
-// export default function Layout({ children }) {
-//   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  
-//   const toggleSidebar = () => {
-//     setIsSidebarOpen(!isSidebarOpen);
-//   };
-  
-//   return (
-//     <div className="flex flex-col min-h-screen">
-//       {/* Navbar */}
-//       <Navbar
-//         onMenuClick={toggleSidebar}
-//         onLogout={() => console.log("Logging out...")}
-//         onRegister={() => console.log("Registering new member...")}
-//       />
-      
-//       {/* Main Content Area */}
-//       <div className="flex flex-1">
-//         {/* Sidebar */}
-//         <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
-        
-//         {/* Main Content - Increased margin-top to account for taller navbar */}
-//         <main className="flex-1 p-4 bg-gray-900 mt-24 ml-0 md:ml-64">
-//           {children}
-//         </main>
-//       </div>
-//     </div>
-//   );
-// }
-// "use client";
-// import { useState } from "react";
-// import Sidebar from "./Sidebar";
-// import Navbar from "./Navbar";
-
-// export default function Layout({ children }) {
-//   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  
-//   const toggleSidebar = () => {
-//     setIsSidebarOpen(!isSidebarOpen);
-//   };
-  
-//   return (
-//     <div className="flex flex-col min-h-screen">
-//       {/* Navbar */}
-//       <Navbar
-//         onMenuClick={toggleSidebar}
-//         onLogout={() => console.log("Logging out...")}
-//         onRegister={() => console.log("Registering new member...")}
-//       />
-      
-//       {/* Main Content Area */}
-//       <div className="flex flex-1">
-//         {/* Sidebar */}
-//         <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
-        
-//         {/* Main Content - Increased margin-top to account for taller navbar */}
-//         <main className="flex-1 p-4 bg-gray-900 mt-24 ml-0 md:ml-64">
-//           {children}
-//         </main>
+//         {/* Main Content */}
+//         <div className="flex flex-1">
+//           <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
+//           <main className="flex-1 bg-gray-900 ml-0 md:ml-64 overflow-hidden light-mode:bg-white">
+//             <div className="mt-24 h-[calc(100vh-6rem)] overflow-auto">
+//               {children}
+//             </div>
+//           </main>
+//         </div>
 //       </div>
 //     </div>
 //   );
 // }
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
+import { useTheme } from "next-themes";
 
 export default function Layout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-  
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure the theme is persisted and applied immediately
+  useEffect(() => {
+    setMounted(true);
+    if (!theme) setTheme("dark"); // Set dark mode if theme is not defined
+  }, [theme, setTheme]);
+
+  // Prevent blinking by applying the theme class to the root element
+  useEffect(() => {
+    if (mounted) {
+      document.documentElement.classList.toggle("light-mode", resolvedTheme === "light");
+    }
+  }, [mounted, resolvedTheme]);
+
+  if (!mounted) {
+    return null; // Avoid rendering until the theme is resolved
+  }
+
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navbar */}
-      <Navbar
-        onMenuClick={toggleSidebar}
-        onLogout={() => console.log("Logging out...")}
-        onRegister={() => console.log("Registering new member...")}
-      />
-      
-      {/* Main Content Area */}
-      <div className="flex flex-1">
-        {/* Sidebar */}
-        <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
-        
-        {/* Main Content - Using fixed positioning for content */}
-        <main className="flex-1 bg-gray-900 ml-0 md:ml-64 overflow-hidden">
-          <div className="mt-24 h-[calc(100vh-6rem)] overflow-auto">
-            {children}
-          </div>
-        </main>
+    <div className={`${resolvedTheme === "light" ? "light-mode" : ""}`}>
+      <div className="flex flex-col min-h-screen">
+        {/* Navbar */}
+        <Navbar
+          onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          onLogout={() => console.log("Logging out...")}
+          onRegister={() => console.log("Registering new member...")}
+        />
+
+        {/* Theme Toggle Button */}
+        <button
+          onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+          className="fixed bottom-4 right-4 bg-gray-800 p-3 rounded-full text-white shadow-lg hover:bg-gray-700 transition-all duration-300 light-mode:bg-white light-mode:text-black light-mode:border light-mode:border-gray-300"
+        >
+          {resolvedTheme === "light" ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+          )}
+        </button>
+
+        {/* Main Content */}
+        <div className="flex flex-1">
+          <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
+          <main className="flex-1 bg-gray-900 ml-0 md:ml-64 overflow-hidden light-mode:bg-white">
+            <div className="mt-24 h-[calc(100vh-6rem)] overflow-auto">
+              {children}
+            </div>
+          </main>
+        </div>
       </div>
     </div>
   );
