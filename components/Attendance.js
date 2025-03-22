@@ -1493,46 +1493,38 @@ const AttendanceHistoryComponent = () => {
           </button>
         </div>
 
-        {/* Premium Search Bar */}
         <div className="w-full px-8 pt-10">
-          <div
-            className={`relative transition-all duration-500 ${
-              searchFocused ? "transform scale-105" : ""
-            }`}
-          >
-            <span className="absolute inset-y-0 left-0 flex items-center pl-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className={`h-5 w-5 transition-all duration-300 ${
-                  searchFocused ? "text-red-500" : "text-gray-500"
-                } light-mode:text-gray-700`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </span>
-            <input
-              type="text"
-              placeholder="Search by member, work type or status"
-              className={`w-full bg-gray-800/50 backdrop-blur-sm border ${
-                searchFocused
-                  ? "border-red-500 shadow-lg shadow-red-500/20"
-                  : "border-gray-700"
-              } text-white pl-14 pr-4 py-5 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 text-lg light-mode:bg-white light-mode:border-gray-300 light-mode:text-black light-mode:hover:border-2 light-mode:hover:border-black light-mode:focus:border-2 light-mode:focus:border-black`}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onFocus={() => setSearchFocused(true)}
-              onBlur={() => setSearchFocused(false)}
-            />
-          </div>
-        </div>
+  <div className={`relative transition-all duration-500 ${searchFocused ? "scale-105" : ""}`}>
+    <span className="absolute inset-y-0 left-0 flex items-center pl-6">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className={`h-5 w-5 transition-all duration-300 ${
+          searchFocused ? "dark:text-red-500 text-black" : "text-gray-500"
+        }`}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </span>
+    <input
+      type="text"
+      placeholder="Search by member, work type or status"
+      className={`w-full bg-gray-800/50 backdrop-blur-sm border 
+        border-black shadow-lg shadow-black/20 ring-[0.1px] ring-black 
+        dark:border-red-500 dark:shadow-lg dark:shadow-red-500/20 dark:ring-[0.1px]dark:ring-red-500
+        text-black dark:text-white pl-14 pr-4 py-5 rounded-xl focus:outline-none
+        transition-all duration-300 text-lg bg-white dark:bg-gray-800`}
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      onFocus={() => setSearchFocused(true)}
+      onBlur={() => setSearchFocused(false)}
+    />
+  </div>
+</div>
+
 
         {/* Filter Modal */}
         {showFilterModal && (
