@@ -1,41 +1,4 @@
-// import React from "react";
 
-// const MembersTable = () => {
-//   // Dummy member data (replace with real data from API)
-//   const members = [
-//     { id: 1, name: "Robert Johnson", plan: "Monthly Platinum", email: "robert@example.com" },
-//     { id: 2, name: "Jane Smith", plan: "Annual Basic", email: "jane@example.com" },
-//     { id: 3, name: "John Doe", plan: "Monthly Premium", email: "john@example.com" },
-//   ];
-
-//   return (
-//     <div className="p-6">
-//       <h2 className="text-2xl font-semibold mb-4">Members List</h2>
-//       <table className="min-w-full bg-gray-800 text-white border border-gray-600">
-//         <thead>
-//           <tr className="bg-gray-900">
-//             <th className="py-2 px-4 border-b">ID</th>
-//             <th className="py-2 px-4 border-b">Name</th>
-//             <th className="py-2 px-4 border-b">Plan</th>
-//             <th className="py-2 px-4 border-b">Email</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {members.map((member) => (
-//             <tr key={member.id} className="text-center">
-//               <td className="py-2 px-4 border-b">{member.id}</td>
-//               <td className="py-2 px-4 border-b">{member.name}</td>
-//               <td className="py-2 px-4 border-b">{member.plan}</td>
-//               <td className="py-2 px-4 border-b">{member.email}</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// export default MembersTable;
 "use client";
 
 import { useState, useEffect } from "react";
