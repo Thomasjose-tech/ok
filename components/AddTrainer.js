@@ -2496,27 +2496,28 @@ const AddTrainer = () => {
       </div>
     );
   }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
       {/* Fixed Header Section with Red Outline */}
       <div className="sticky top-0 z-10 bg-gray-900 pt-4 px-4 md:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="border-2 border-red-500 rounded-lg p-3 shadow-lg bg-gray-800">
-            <h1 className="text-2xl md:text-3xl font-bold text-white text-center">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center">
               Add New Trainer
             </h1>
           </div>
         </div>
       </div>
   
-      {/* Scrollable Content Area - Wider Container */}
-      <div className="px-4 md:px-8 pb-8 max-w-6xl mx-auto mt-6">
+      {/* Scrollable Content Area */}
+      <div className="px-4 md:px-6 lg:px-8 pb-8 max-w-6xl mx-auto mt-6">
         <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-2xl border border-gray-700 overflow-hidden">
-          <div className="overflow-y-auto max-h-[calc(100vh-200px)] p-6">
+          <div className="overflow-y-auto max-h-[calc(100vh-200px)] p-4 sm:p-6">
             <form onSubmit={handleSubmit}>
               {/* Profile Photo Upload */}
-              <div className="flex flex-col items-center mb-8">
-                <div className="relative w-32 h-32 rounded-full bg-gray-700 flex items-center justify-center mb-4 overflow-hidden cursor-pointer border-2 border-gray-600 hover:border-red-500 transition-all duration-300 group"
+              <div className="flex flex-col items-center mb-6 sm:mb-8">
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gray-700 flex items-center justify-center mb-3 sm:mb-4 overflow-hidden cursor-pointer border-2 border-gray-600 hover:border-red-500 transition-all duration-300 group"
                   onClick={() => fileInputRef.current.click()}>
                   {previewImage ? (
                     <>
@@ -2528,28 +2529,28 @@ const AddTrainer = () => {
                         sizes="(max-width: 128px) 100vw"
                       />
                       <button type="button" onClick={(e) => { e.stopPropagation(); removePhoto(); }}
-                        className="absolute top-2 right-2 bg-red-500 rounded-full p-1 hover:bg-red-600 transition-colors">
-                        <X size={16} className="text-white"/>
+                        className="absolute top-1 right-1 sm:top-2 sm:right-2 bg-red-500 rounded-full p-1 hover:bg-red-600 transition-colors">
+                        <X size={14} className="text-white"/>
                       </button>
                     </>
                   ) : (
-                    <div className="text-center p-4">
-                      <User className="h-12 w-12 text-gray-400 mx-auto group-hover:text-red-400 transition-colors"/>
-                      <p className="text-sm text-gray-400 mt-2 group-hover:text-white transition-colors">
-                        Add Profile Photo
+                    <div className="text-center p-2 sm:p-4">
+                      <User className="h-8 w-8 sm:h-12 sm:w-12 text-gray-400 mx-auto group-hover:text-red-400 transition-colors"/>
+                      <p className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-2 group-hover:text-white transition-colors">
+                        Add Photo
                       </p>
                     </div>
                   )}
                 </div>
                 <input ref={fileInputRef} type="file" accept="image/*" onChange={handlePhotoChange} className="hidden"/>
-                <p className="text-xs text-gray-500">Maximum file size: 5MB (JPEG, PNG)</p>
+                <p className="text-xs text-gray-500 text-center">Max 5MB (JPEG, PNG)</p>
               </div>
   
-              {/* Trainer Information - Wider Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {/* Trainer Information */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 {/* Trainer Name */}
                 <div className="col-span-1">
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
+                  <label className="block text-gray-300 text-sm font-medium mb-1 sm:mb-2">
                     Trainer Name *
                   </label>
                   <input
@@ -2557,14 +2558,14 @@ const AddTrainer = () => {
                     name="trainer_name"
                     value={formData.trainer_name}
                     onChange={handleChange}
-                    className="w-full bg-gray-700/80 p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500 border border-gray-600 transition-all"
+                    className="w-full bg-gray-700/80 p-2 sm:p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500 border border-gray-600 transition-all text-sm sm:text-base"
                     required
                   />
                 </div>
   
                 {/* Specialization */}
                 <div className="col-span-1">
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
+                  <label className="block text-gray-300 text-sm font-medium mb-1 sm:mb-2">
                     Specialization *
                   </label>
                   <input
@@ -2572,14 +2573,14 @@ const AddTrainer = () => {
                     name="specialization"
                     value={formData.specialization}
                     onChange={handleChange}
-                    className="w-full bg-gray-700/80 p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500 border border-gray-600 transition-all"
+                    className="w-full bg-gray-700/80 p-2 sm:p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500 border border-gray-600 transition-all text-sm sm:text-base"
                     required
                   />
                 </div>
   
                 {/* Phone Number */}
-                <div className="col-span-1">
-                  <label className="block text-gray-300 text-sm font-medium mb-2">
+                <div className="col-span-1 sm:col-span-2">
+                  <label className="block text-gray-300 text-sm font-medium mb-1 sm:mb-2">
                     Phone Number *
                   </label>
                   <input
@@ -2587,24 +2588,24 @@ const AddTrainer = () => {
                     name="phone_number"
                     value={formData.phone_number}
                     onChange={handleChange}
-                    className="w-full bg-gray-700/80 p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500 border border-gray-600 transition-all"
+                    className="w-full bg-gray-700/80 p-2 sm:p-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-red-500 border border-gray-600 transition-all text-sm sm:text-base"
                     required
                   />
                 </div>
               </div>
   
               {/* Availability Section */}
-              <div className="mb-8">
-                <label className="block text-gray-300 text-sm font-medium mb-2">
+              <div className="mb-6 sm:mb-8">
+                <label className="block text-gray-300 text-sm font-medium mb-1 sm:mb-2">
                   Availability *
                 </label>
-                <div className="grid grid-cols-7 gap-2">
+                <div className="grid grid-cols-7 gap-1 sm:gap-2">
                   {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map((day) => (
                     <div key={day} className="flex flex-col items-center">
                       <button
                         type="button"
                         onClick={() => handleAvailabilityChange(day)}
-                        className={`w-full py-2 px-1 rounded-lg text-center transition-colors ${formData.availability[day] ? 'bg-red-500 text-white' : 'bg-gray-700/80 text-gray-300 hover:bg-gray-600'}`}
+                        className={`w-full py-1 sm:py-2 px-0 sm:px-1 rounded-lg text-center transition-colors text-xs sm:text-sm ${formData.availability[day] ? 'bg-red-500 text-white' : 'bg-gray-700/80 text-gray-300 hover:bg-gray-600'}`}
                       >
                         {day.charAt(0).toUpperCase() + day.slice(1, 3)}
                       </button>
@@ -2613,24 +2614,31 @@ const AddTrainer = () => {
                 </div>
               </div>
   
+              {/* Error Message */}
+              {error && (
+                <div className="mb-4 p-3 bg-red-500/10 border border-red-500 rounded-lg text-red-300 text-sm">
+                  {error}
+                </div>
+              )}
+  
               {/* Form Actions */}
-              <div className="flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-700">
+              <div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-700">
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="flex items-center justify-center px-6 py-3 bg-gray-700 rounded-lg font-medium hover:bg-gray-600 transition-colors"
+                  className="flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-gray-700 rounded-lg font-medium hover:bg-gray-600 transition-colors text-sm sm:text-base"
                 >
-                  <Trash2 className="mr-2" size={18} />
+                  <Trash2 className="mr-2" size={16} />
                   Reset
                 </button>
                 <button
                   type="submit"
-                  className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 rounded-lg font-medium hover:from-red-500 hover:to-red-600 transition-all shadow-lg hover:shadow-red-500/20"
+                  className="flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-red-600 to-red-500 rounded-lg font-medium hover:from-red-500 hover:to-red-600 transition-all shadow-lg hover:shadow-red-500/20 text-sm sm:text-base"
                   disabled={loading}
                 >
                   {loading ? (
                     <>
-                      <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
@@ -2638,7 +2646,7 @@ const AddTrainer = () => {
                     </>
                   ) : (
                     <>
-                      <Plus className="mr-2" size={18} />
+                      <Plus className="mr-2" size={16} />
                       Add Trainer
                     </>
                   )}
@@ -2653,3 +2661,4 @@ const AddTrainer = () => {
 };
 
 export default AddTrainer;
+3.0

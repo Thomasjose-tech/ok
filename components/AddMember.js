@@ -4228,15 +4228,15 @@ const AddMember = () => {
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="p-6 flex justify-center items-start overflow-auto h-screen pt-0">
+    <div className="p-4 md:p-6 flex justify-center items-start h-full w-full">
       <div className="w-full max-w-8xl">
-        <h2 className="text-2xl font-bold mb-6 sticky top-0 bg-gray-800 py-2 z-10 text-white dark:bg-gray-900">
+        <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 sticky top-0 bg-gray-800 py-2 z-10 text-white dark:bg-gray-900">
           Add New Member
         </h2>
 
-        <div className="bg-gray-800 p-6 rounded-lg text-white h-[calc(100vh-12rem)] overflow-y-auto shadow-lg dark:bg-gray-900">
+        <div className="bg-gray-800 p-4 md:p-6 rounded-lg text-white shadow-lg dark:bg-gray-900">
           {error && (
-            <div className="bg-red-500 text-white p-4 rounded mb-6">
+            <div className="bg-red-500 text-white p-3 md:p-4 rounded mb-4 md:mb-6">
               <div className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
@@ -4247,7 +4247,7 @@ const AddMember = () => {
           )}
           
           {successMessage && (
-            <div className="bg-green-500 text-white p-4 rounded mb-6">
+            <div className="bg-green-500 text-white p-3 md:p-4 rounded mb-4 md:mb-6">
               <div className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -4257,11 +4257,11 @@ const AddMember = () => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
             {/* Profile Photo Upload */}
-            <div className="col-span-2 flex flex-col items-center mb-8">
+            <div className="col-span-2 flex flex-col items-center mb-6 md:mb-8">
               <div 
-                className="w-36 h-36 rounded-full bg-gray-700 flex items-center justify-center mb-4 overflow-hidden cursor-pointer border-2 border-red-500 hover:border-red-400 shadow-lg transition-all duration-300 hover:shadow-red-500/20 group relative"
+                className="w-24 h-24 md:w-36 md:h-36 rounded-full bg-gray-700 flex items-center justify-center mb-3 md:mb-4 overflow-hidden cursor-pointer border-2 border-red-500 hover:border-red-400 shadow-lg transition-all duration-300 hover:shadow-red-500/20 group relative"
                 onClick={() => document.getElementById('fileInput').click()}
               >
                 {photoPreview ? (
@@ -4275,15 +4275,15 @@ const AddMember = () => {
                     />
                   </div>
                 ) : (
-                  <div className="text-center p-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-14 w-14 text-gray-400 mx-auto group-hover:text-red-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="text-center p-2 md:p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 md:h-14 md:w-14 text-gray-400 mx-auto group-hover:text-red-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
-                    <p className="text-sm text-gray-400 mt-2 font-light group-hover:text-white transition-colors duration-300">Add Profile Photo</p>
+                    <p className="text-xs md:text-sm text-gray-400 mt-1 md:mt-2 font-light group-hover:text-white transition-colors duration-300">Add Photo</p>
                   </div>
                 )}
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
@@ -4296,55 +4296,55 @@ const AddMember = () => {
                 onChange={handlePhotoChange}
                 className="hidden"
               />
-              <p className="text-xs text-gray-400">Accepted formats: JPEG, PNG (Max 5MB)</p>
+              <p className="text-xs text-gray-400 text-center">JPEG, PNG (Max 5MB)</p>
               {profilePhoto && (
-                <p className="text-xs text-gray-400 mt-1">{profilePhoto.name}</p>
+                <p className="text-xs text-gray-400 mt-1 truncate max-w-xs">{profilePhoto.name}</p>
               )}
             </div>
 
             {/* Personal Information */}
-            <h3 className="col-span-2 text-xl font-semibold mb-2 text-red-500 border-b border-gray-700 pb-2">
+            <h3 className="col-span-2 text-lg md:text-xl font-semibold mb-2 text-red-500 border-b border-gray-700 pb-2">
               Personal Information
             </h3>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Full Name *</label>
+              <label className="text-xs md:text-sm text-gray-300">Full Name *</label>
               <input
                 type="text"
                 name="full_name"
                 value={formData.full_name}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               />
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Email Address *</label>
+              <label className="text-xs md:text-sm text-gray-300">Email *</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               />
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Phone Number *</label>
+              <label className="text-xs md:text-sm text-gray-300">Phone *</label>
               <input
                 type="tel"
                 name="phone_number"
                 value={formData.phone_number}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               />
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Age *</label>
+              <label className="text-xs md:text-sm text-gray-300">Age *</label>
               <input
                 type="number"
                 name="age"
@@ -4352,18 +4352,18 @@ const AddMember = () => {
                 onChange={handleChange}
                 min="12"
                 max="100"
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               />
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Gender *</label>
+              <label className="text-xs md:text-sm text-gray-300">Gender *</label>
               <select
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               >
                 <option value="">Select Gender</option>
@@ -4375,52 +4375,52 @@ const AddMember = () => {
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Trainer Name </label>
+              <label className="text-xs md:text-sm text-gray-300">Trainer</label>
               <input
                 type="text"
                 name="trainer_name"
                 value={formData.trainer_name}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
               />
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Pincode *</label>
+              <label className="text-xs md:text-sm text-gray-300">Pincode *</label>
               <input
                 type="text"
                 name="pincode"
                 value={formData.pincode}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               />
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Emergency Contact *</label>
+              <label className="text-xs md:text-sm text-gray-300">Emergency Contact *</label>
               <input
                 type="tel"
                 name="emergency_contact"
                 value={formData.emergency_contact}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               />
             </div>
 
             {/* Membership Details */}
-            <h3 className="col-span-2 text-xl font-semibold mb-2 text-red-500 mt-6 border-b border-gray-700 pb-2">
+            <h3 className="col-span-2 text-lg md:text-xl font-semibold mb-2 text-red-500 mt-4 md:mt-6 border-b border-gray-700 pb-2">
               Membership Details
             </h3>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Membership Plan *</label>
+              <label className="text-xs md:text-sm text-gray-300">Plan *</label>
               <select
                 name="membership_plan"
                 value={formData.membership_plan}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               >
                 <option value="">Select Plan</option>
@@ -4432,13 +4432,13 @@ const AddMember = () => {
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Amount Paid (₹) *</label>
+              <label className="text-xs md:text-sm text-gray-300">Amount (₹) *</label>
               <input
                 type="number"
                 name="amount_paid"
                 value={formData.amount_paid}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
                 min="0"
                 step="0.01"
@@ -4446,12 +4446,12 @@ const AddMember = () => {
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Payment Status</label>
+              <label className="text-xs md:text-sm text-gray-300">Payment Status</label>
               <select
                 name="payment_status"
                 value={formData.payment_status}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
               >
                 <option value="Pending">Pending</option>
                 <option value="Completed">Completed</option>
@@ -4461,12 +4461,12 @@ const AddMember = () => {
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Membership Status</label>
+              <label className="text-xs md:text-sm text-gray-300">Status</label>
               <select
                 name="membership_status"
                 value={formData.membership_status}
                 onChange={handleChange}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
               >
                 <option value="Inactive">Inactive</option>
                 <option value="Active">Active</option>
@@ -4476,44 +4476,44 @@ const AddMember = () => {
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Payment Date *</label>
+              <label className="text-xs md:text-sm text-gray-300">Payment Date *</label>
               <input
                 type="date"
                 name="payment_date"
                 value={formData.payment_date}
                 onChange={handleChange}
                 max={today}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               />
             </div>
             
             <div className="space-y-1">
-              <label className="text-sm text-gray-300">Renewal Date *</label>
+              <label className="text-xs md:text-sm text-gray-300">Renewal Date *</label>
               <input
                 type="date"
                 name="renewal_date"
                 value={formData.renewal_date}
                 onChange={handleChange}
                 min={formData.payment_date || today}
-                className="bg-gray-700 p-2 rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
+                className="bg-gray-700 p-2 text-sm md:text-base rounded text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 w-full border border-gray-600"
                 required
               />
             </div>
 
             {/* Form Actions */}
-            <div className="col-span-2 flex justify-end space-x-4 mt-8 pt-4 border-t border-gray-700">
+            <div className="col-span-2 flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 mt-6 md:mt-8 pt-4 border-t border-gray-700">
               <button
                 type="button"
                 onClick={handleReset}
-                className="px-6 py-2 rounded font-medium bg-gray-600 hover:bg-gray-500 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="px-4 py-2 md:px-6 md:py-2 rounded font-medium bg-gray-600 hover:bg-gray-500 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 text-sm md:text-base"
               >
                 Reset Form
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-6 py-2 rounded font-medium bg-red-600 hover:bg-red-500 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-70 disabled:cursor-not-allowed flex items-center"
+                className="px-4 py-2 md:px-6 md:py-2 rounded font-medium bg-red-600 hover:bg-red-500 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center text-sm md:text-base"
               >
                 {isSubmitting ? (
                   <>
