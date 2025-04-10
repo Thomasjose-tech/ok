@@ -33849,7 +33849,7 @@ const MembersPage = () => {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/admin/members", {
+        const response = await fetch("https://flexzone-gyms.onrender.com/api/admin/members", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -33994,7 +33994,7 @@ const MembersPage = () => {
 
     try {
       const trainerResponse = await fetch(
-        `http://localhost:5000/api/admin/trainers/${formData.trainer_name}`,
+        `https://flexzone-gyms.onrender.com/api/admin/trainers/${formData.trainer_name}`,
         {
           method: "GET",
           headers: {
@@ -34014,7 +34014,7 @@ const MembersPage = () => {
       };
 
       const response = await fetch(
-        `http://localhost:5000/api/admin/members/${membershipID}`,
+        `https://flexzone-gyms.onrender.com/api/admin/members/${membershipID}`,
         {
           method: "PUT",
           headers: {
@@ -34085,7 +34085,7 @@ const MembersPage = () => {
   const deleteMemberFromDatabase = async (membershipID) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/members/${membershipID}`,
+        `https://flexzone-gyms.onrender.com/api/admin/members/${membershipID}`,
         {
           method: "DELETE",
           headers: {

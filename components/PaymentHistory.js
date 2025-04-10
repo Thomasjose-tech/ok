@@ -11079,7 +11079,7 @@ const PaymentHistoryComponent = () => {
   useEffect(() => {
     const fetchPaymentHistory = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/payment/payment-details");
+        const response = await axios.get("https://flexzone-gyms.onrender.com/api/payment/payment-details");
         
         if (!response.data) {
           throw new Error("No data received from server");

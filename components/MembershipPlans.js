@@ -1116,7 +1116,7 @@ const MembershipPlans = () => {
   useEffect(() => {
     const fetchPlans = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/membership/plans');
+        const response = await fetch('https://flexzone-gyms.onrender.com/api/membership/plans');
         if (!response.ok) throw new Error('Failed to fetch plans');
         const data = await response.json();
         if (data.plans) {
@@ -1144,7 +1144,7 @@ const MembershipPlans = () => {
 
   const handlePriceUpdate = async (planName) => {
     try {
-      const response = await fetch('http://localhost:5000/api/membership/update-price', {
+      const response = await fetch('https://flexzone-gyms.onrender.com/api/membership/update-price', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

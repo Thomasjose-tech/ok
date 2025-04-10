@@ -2432,7 +2432,7 @@ const AddTrainer = () => {
         formDataToSend.append('passport_photo', fileInputRef.current.files[0]);
       }
 
-      const response = await fetch('http://localhost:5000/api/admin/trainers/add-trainer', {
+      const response = await fetch('https://flexzone-gyms.onrender.com/api/admin/trainers/add-trainer', {
         method: 'POST',
         body: formDataToSend
       });
@@ -2661,4 +2661,4 @@ const AddTrainer = () => {
 };
 
 export default AddTrainer;
-3.0
+
